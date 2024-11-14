@@ -14,7 +14,17 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize({
+    database: config.database,
+    user: config.username,
+    password: config.password,
+    host: config.host,
+    dialect: 'postgres',
+    protocol: 'postgres',
+    ssl: {
+      require: true,
+    },
+  });
 }
 
 fs
