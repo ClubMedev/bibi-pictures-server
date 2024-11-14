@@ -1,0 +1,6 @@
+# You know what this hides. You're not getting it.
+.env
+
+# No bloat in my git.
+node_modules
+
